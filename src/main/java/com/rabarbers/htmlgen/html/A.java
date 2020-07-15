@@ -9,8 +9,15 @@ public class A extends Element {
         super(parent, "a");
     }
 
+    @Deprecated
     public A(String href, String title) {
         this();
+        setAttr("href", href);
+        appendChildContent(title);
+    }
+
+    public A(Element parent, String href, String title) {
+        this(parent);
         setAttr("href", href);
         appendChildContent(title);
     }
