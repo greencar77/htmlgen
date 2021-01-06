@@ -55,7 +55,7 @@ public abstract class Element {
 
     public StringBuilder getContent() {
         StringBuilder sb = new StringBuilder();
-        sb.append("<" + name + getSerializedAttributes() + ">").append("\n");
+        sb.append("<" + name + getSerializedAttributes() + ">");
         if (childContent.length() > 0 && children.size() > 0) {
             throw new RuntimeException("Only one content type allowed " + name);
         }
@@ -64,7 +64,7 @@ public abstract class Element {
         } else if (children.size() > 0) {
             children.stream().forEach(c -> sb.append(c.getContent()));
         }
-        sb.append("</" + name + ">").append("\n");
+        sb.append("</" + name + ">");
         return sb;
     }
 
